@@ -3,7 +3,7 @@ import { useContributions } from '../hooks/useContributions';
 import { ContributionCell } from './ContributionCell';
 
 export const Board: FC = () => {
-  const [contributions, error, isPending] = useContributions('teobaj', '2022');
+  const [contributions, error, isPending] = useContributions('teobaj', '2023');
   if (isPending) {
     return <div>...Loading </div>;
   }
@@ -15,14 +15,12 @@ export const Board: FC = () => {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateRows: `repeat(${contributions.length}, 1fr)`,
-        gridTemplateColumns: `repeat(${contributions[0].length}, 1fr)`,
+        gridTemplateRows: `repeat(${contributions.length}, 16px)`,
+        gridTemplateColumns: `repeat(${contributions[0].length}, 16px)`,
       }}
+      className="grid gap-1 p-4 border-2 border-gray-600 rounded-md content-center w-fit bg-slate-900"
     >
-      {contributions.map((weekDay) =>
-        weekDay.map((day) => <ContributionCell {...day} />)
-      )}
+      {contributions.map((weekDay) => weekDay.map((contribution, i) => <ContributionCell {...contribution} key={i} />))}
     </div>
   );
 };

@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
+import { ContributionsResponse } from '../models/Contribution';
 
 const GH_CONTRIBUTIONS_API = 'https://gh-contributions-api.vercel.app/';
 
-export const useContributions = (
-  user: string,
-  year: string
-): [ContributionsResponse, string | null, boolean] => {
-  const [contributions, setContributions] = useState<ContributionsResponse>([
-    [],
-  ]);
+export const useContributions = (user: string, year: string): [ContributionsResponse, string | null, boolean] => {
+  const [contributions, setContributions] = useState<ContributionsResponse>([[]]);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState<boolean>(false);
   useEffect(() => {

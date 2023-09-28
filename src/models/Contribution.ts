@@ -1,4 +1,4 @@
-type Contribution = {
+export type Contribution = {
   count: number;
   name: string;
   month: string;
@@ -7,4 +7,4 @@ type Contribution = {
   level: number;
 };
 
-type ContributionsResponse = Array<Contribution | null>[];
+export type ContributionsResponse = Array<Contribution>[];

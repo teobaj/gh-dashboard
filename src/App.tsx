@@ -1,13 +1,10 @@
 import { Board } from './components/Board';
-import { useContributions } from './hooks/useContributions';
 
 function App() {
-  const [contributions] = useContributions('teobaj', '2022');
-  console.log(contributions);
   return (
-    <>
+    <div className="h-screen w-screen p-4 bg-zinc-800 flex flex-col items-center">
       <Board />
-    </>
+    </div>
   );
 }
 
